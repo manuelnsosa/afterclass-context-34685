@@ -13,6 +13,10 @@ const PlantsList = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+  const handleClick = (e) => {
+    e.preventDefault();
+    return console.log('It works');
+  };
   return (
     <>
       <div className='flex flex-wrap items-center justify-center mt-10'>
@@ -71,14 +75,12 @@ const PlantsList = () => {
                     >
                       ${plant.price}
                     </span>
-                    <div onClick={(e) => e.stopPropagation()}>
-                      <Link
-                        to='/contact'
-                        className={`bg-white rounded-full ${plant.textColor} text-xs w-20 mt-3 font-bold px-3 py-2 leading-none flex items-center`}
-                      >
-                        Contacto
-                      </Link>
-                    </div>
+                    <button
+                      onClick={handleClick}
+                      className={`bg-white rounded-full ${plant.textColor} text-xs w-30 mt-3 font-bold px-3 py-2 leading-none flex items-center`}
+                    >
+                      Stop propagation
+                    </button>
                   </div>
                 </div>
               </Link>
